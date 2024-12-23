@@ -2,12 +2,13 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AddFood = () => {
   //   const [expiredDate, setExpiredDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const handleAddFood = (e) => {
+  const handleAddFood = async (e) => {
     e.preventDefault();
     const form = e.target;
 
@@ -33,22 +34,29 @@ const AddFood = () => {
       foodStatus: "available",
     };
 
-    console.log(formData);
+    // console.log(formData);
 
-    fetch("http://localhost:5000/foods", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          toast.success("Food added successfully");
-          navigate("/manageFood");
-        }
-      });
+    // fetch("http://localhost:5000/foods", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(formData),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.insertedId) {
+    //       toast.success("Food added successfully");
+    //       navigate("/manageFood");
+    //     }
+    //   });
+
+    const { data } = await axios.post("http://localhost:5000/foods", formData);
+    if (data.insertedId) {
+      toast.success("Food added successfully");
+      navigate("/manageFood");
+    }
+    console.log(data);
   };
 
   return (

@@ -13,7 +13,7 @@ const FoodDetails = () => {
     foodImage,
     foodQuantity,
     pickupLocation,
-    expiredDateTime,
+    expiredDate,
     additionalNotes,
     donator,
     foodStatus,
@@ -39,10 +39,10 @@ const FoodDetails = () => {
         <h2 className="card-title">{foodName}</h2>
         <p>{foodQuantity}</p>
         <p>{pickupLocation}</p>
-        <p>{expiredDateTime}</p>
+        <p>{expiredDate}</p>
         <p>{additionalNotes}</p>
         <p>{foodQuantity}</p>
-        <p>{foodStatus}</p>
+        <p>{foodStatus && foodStatus}</p>
         <div className="card-actions justify-end">
           <button
             onClick={() => document.getElementById("my_modal_5").showModal()}
@@ -67,7 +67,7 @@ const FoodDetails = () => {
               <h3>{user?.email}</h3>
               <h4>{date}</h4>
               <p>{pickupLocation}</p>
-              <p>{expiredDateTime}</p>
+              <p>{expiredDate}</p>
               <p className="py-4">{additionalNotes}</p>
               <button className="btn">Request</button>
               <div className="modal-action">

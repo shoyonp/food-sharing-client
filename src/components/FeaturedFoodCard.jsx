@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const FeaturedFoodCard = ({ food }) => {
-  const {_id, foodName, foodImage, foodQuantity, foodStatus, expiredDateTime } =
+  const {_id, foodName, foodImage, foodQuantity, foodStatus, expiredDate } =
     food;
   return (
     <div className="card bg-base-100 shadow-xl">
@@ -18,7 +18,7 @@ const FeaturedFoodCard = ({ food }) => {
       <div className="badge badge-secondary">{foodStatus}</div>
     </h2>
     <p>{foodQuantity}</p>
-    <p>{expiredDateTime}</p>
+    <p>{expiredDate}</p>
     <div className="card-actions justify-end">
      <Link to={`/foods/${_id}`}><button className="btn btn-warning">View Details</button></Link>
     </div>

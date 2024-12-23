@@ -20,7 +20,7 @@ const FeaturedFoodCard = ({ food }) => {
     <p>{foodQuantity}</p>
     <p>{expiredDateTime}</p>
     <div className="card-actions justify-end">
-     <Link to={`/food/${_id}`}><button className="btn btn-warning">View Details</button></Link>
+     <Link to={`/foods/${_id}`}><button className="btn btn-warning">View Details</button></Link>
     </div>
   </div>
 </div>

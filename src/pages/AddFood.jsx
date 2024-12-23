@@ -1,9 +1,12 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddFood = () => {
   //   const [expiredDate, setExpiredDate] = useState(new Date());
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleAddFood = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -27,6 +30,7 @@ const AddFood = () => {
       pickupLocation,
       expiredDate,
       additionalNotes,
+      foodStatus: "available",
     };
 
     console.log(formData);
@@ -39,10 +43,13 @@ const AddFood = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Food added successfully");
+          navigate("/manageFood");
+        }
+      });
   };
-
-  
 
   return (
     <div className="bg-[#F4F3F0] p-24 w-3/5 mx-auto">

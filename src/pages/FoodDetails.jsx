@@ -19,6 +19,8 @@ const FoodDetails = () => {
     foodStatus,
   } = food;
 
+  console.log(food,user);
+
   useEffect(() => {
     const currentDate = new Date().toLocaleDateString("en-US");
     console.log(currentDate);
@@ -32,9 +34,9 @@ const FoodDetails = () => {
       </figure>
       <div className="card-body">
         <div className="flex gap-6">
-          <img className="w-16 rounded-full" src={donator.image} alt="" />
-          <h2>{donator.name}</h2>
-          <h3>{donator.email}</h3>
+          <img className="w-16 rounded-full" src={donator?.image} alt="" />
+          <h2>{donator?.name}</h2>
+          <h3>{donator?.email}</h3>
         </div>
         <h2 className="card-title">{foodName}</h2>
         <p>{foodQuantity}</p>
@@ -62,8 +64,8 @@ const FoodDetails = () => {
               <h3 className="font-bold text-lg">{foodName}</h3>
               <img src={foodImage} alt="" />
               <h5>{_id}</h5>
-              <h3>{donator.email}</h3>
-              <h3>{donator.name}</h3>
+              <h3>{donator?.email}</h3>
+              <h3>{donator?.name}</h3>
               <h3>{user?.email}</h3>
               <h4>{date}</h4>
               <p>{pickupLocation}</p>

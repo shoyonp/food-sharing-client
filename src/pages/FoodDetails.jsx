@@ -3,10 +3,9 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const FoodDetails = () => {
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState([]);
   const { user } = useContext(AuthContext);
   const food = useLoaderData();
-  console.log(food);
   const {
     _id,
     foodName,
@@ -19,7 +18,7 @@ const FoodDetails = () => {
     foodStatus,
   } = food;
 
-  console.log(food,user);
+  console.log(food);
 
   useEffect(() => {
     const currentDate = new Date().toLocaleDateString("en-US");

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ManageFood = () => {
   const { user } = useContext(AuthContext);
@@ -126,7 +127,10 @@ const ManageFood = () => {
                 </td>
                 <td>{food.expiredDate}</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">Update</button>
+                  <Link to={`/updateFood/${food._id}`}>
+                    {" "}
+                    <button className="btn btn-ghost btn-xs">Update</button>
+                  </Link>
                   <button
                     onClick={() => deleteFood(food._id)}
                     className="btn btn-ghost btn-xs"

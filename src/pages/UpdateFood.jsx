@@ -1,14 +1,23 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../provider/AuthProvider";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddFood = () => {
-  //   const [expiredDate, setExpiredDate] = useState(new Date());
-  const { user } = useContext(AuthContext);
+const UpdateFood = () => {
+  const [food, setFood] = useState({});
   const navigate = useNavigate();
-  const handleAddFood = async (e) => {
+  const { id } = useParams();
+  useEffect(() => {
+    fetchFood();
+  }, [id]);
+
+  const fetchFood = async () => {
+    const { data } = await axios.get(`http://localhost:5000/food/${id}`);
+    setFood(data);
+    console.log(data);
+  };
+
+  const handleUpdate = async (e) => {
     e.preventDefault();
     const form = e.target;
 
@@ -21,39 +30,25 @@ const AddFood = () => {
 
     const formData = {
       foodName,
-      donator: {
-        image: user?.photoURL,
-        name: user?.displayName,
-        email: user?.email,
-      },
+    //   donator: {
+    //     image: user?.photoURL,
+    //     name: user?.displayName,
+    //     email: user?.email,
+    //   },
       foodImage,
       foodQuantity,
       pickupLocation,
       expiredDate,
       additionalNotes,
-      foodStatus: "available",
+      foodStatus: food.foodStatus,
     };
 
-    // console.log(formData);
-
-    // fetch("http://localhost:5000/foods", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.insertedId) {
-    //       toast.success("Food added successfully");
-    //       navigate("/manageFood");
-    //     }
-    //   });
-
-    const { data } = await axios.post("http://localhost:5000/foods", formData);
-    if (data.insertedId) {
-      toast.success("Food added successfully");
+    const { data } = await axios.put(
+      `http://localhost:5000/updateFood/${id}`,
+      formData
+    );
+    if (data.modifiedCount || data.upsertedCount) {
+      toast.success("Food updated successfully");
       navigate("/manageFood");
     }
     console.log(data);
@@ -61,8 +56,8 @@ const AddFood = () => {
 
   return (
     <div className="bg-[#F4F3F0] p-24 w-3/5 mx-auto">
-      <h2 className="text-3xl font-bold">Add a Food</h2>
-      <form onSubmit={handleAddFood}>
+      <h2 className="text-3xl font-bold">Update Food</h2>
+      <form onSubmit={handleUpdate}>
         {/* form name and image row */}
         <div className="md:flex mb-8 gap-4">
           {/* food name */}
@@ -74,8 +69,8 @@ const AddFood = () => {
               <input
                 type="text"
                 name="foodName"
+                defaultValue={food?.foodName}
                 placeholder="Food Name"
-                required
                 className="input input-bordered w-full"
               />
             </label>
@@ -91,7 +86,7 @@ const AddFood = () => {
                 type="url"
                 name="foodImage"
                 placeholder="Photo URL"
-                required
+                defaultValue={food?.foodImage}
                 className="input input-bordered w-full"
               />
             </label>
@@ -108,8 +103,8 @@ const AddFood = () => {
               <input
                 type="text"
                 name="foodQuantity"
+                defaultValue={food?.foodQuantity}
                 placeholder="Food Quantity"
-                required
                 className="input input-bordered w-full"
               />
             </label>
@@ -123,8 +118,8 @@ const AddFood = () => {
               <input
                 type="text"
                 name="pickupLocation"
+                defaultValue={food?.pickupLocation}
                 placeholder="Pickup Location"
-                required
                 className="input input-bordered w-full"
               />
             </label>
@@ -140,9 +135,8 @@ const AddFood = () => {
               <input
                 type="date"
                 name="expiredDate"
-                // onChange={(date) => setExpiredDate(date)}
+                defaultValue={food?.expiredDate}
                 placeholder="Expired Date"
-                required
                 className="input input-bordered w-full"
               />
             </label>
@@ -156,8 +150,8 @@ const AddFood = () => {
               <input
                 type="text"
                 name="additionalNotes"
+                defaultValue={food?.additionalNotes}
                 placeholder="Additional Notes"
-                required
                 className="input input-bordered w-full"
               />
             </label>
@@ -166,7 +160,7 @@ const AddFood = () => {
 
         <input
           type="submit"
-          value="Add Food"
+          value="Update"
           className="btn btn-block btn-neutral"
         />
       </form>
@@ -174,4 +168,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
+export default UpdateFood;

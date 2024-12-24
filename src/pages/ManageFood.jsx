@@ -89,8 +89,8 @@ const ManageFood = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>Food Name</th>
-              <th>Additional Notes & Location</th>
+              <th>Food Name & Location</th>
+              <th>Additional Notes & Quantity</th>
               <th>Expired Date</th>
               <th></th>
             </tr>

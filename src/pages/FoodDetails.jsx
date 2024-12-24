@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const FoodDetails = () => {
-  const [date, setDate] = useState([]);
+  const [date, setDate] = useState("");
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const food = useLoaderData();
   const {
@@ -20,11 +23,40 @@ const FoodDetails = () => {
 
   console.log(food);
 
+  //   current date
   useEffect(() => {
     const currentDate = new Date().toLocaleDateString("en-US");
     console.log(currentDate);
     setDate(currentDate);
   }, [Date]);
+
+  //   request for a food
+  const handleRequest = async (food) => {
+    const email = user?.email;
+    const donarName = food.donator.name;
+    const pickupLocation = food.pickupLocation;
+    const expiredDate = food.expiredDate;
+    const requestDate = date;
+    const foodId = _id;
+
+    const reqData = {
+      email,
+      donarName,
+      pickupLocation,
+      expiredDate,
+      requestDate,
+      foodId,
+    };
+    const { data } = await axios.post(
+      "http://localhost:5000/req-food",
+      reqData
+    );
+    if (data.insertedId) {
+      toast.success("Request successfully");
+      navigate("/foodRequest");
+    }
+    console.log(data);
+  };
 
   return (
     <div className="card card-side bg-orange-400 shadow-xl w-11/12 mx-auto my-4">
@@ -66,11 +98,13 @@ const FoodDetails = () => {
               <h3>{donator?.email}</h3>
               <h3>{donator?.name}</h3>
               <h3>{user?.email}</h3>
-              <h4>{date}</h4>
+              <h4>Current Date: {date}</h4>
               <p>{pickupLocation}</p>
-              <p>{expiredDate}</p>
+              <p>Expired Date: {expiredDate}</p>
               <p className="py-4">{additionalNotes}</p>
-              <button className="btn">Request</button>
+              <button onClick={() => handleRequest(food)} className="btn">
+                Request
+              </button>
               <div className="modal-action">
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}

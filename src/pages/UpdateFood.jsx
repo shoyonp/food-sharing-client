@@ -72,6 +72,7 @@ const UpdateFood = () => {
                 defaultValue={food?.foodName}
                 placeholder="Food Name"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -88,6 +89,7 @@ const UpdateFood = () => {
                 placeholder="Photo URL"
                 defaultValue={food?.foodImage}
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -106,6 +108,7 @@ const UpdateFood = () => {
                 defaultValue={food?.foodQuantity}
                 placeholder="Food Quantity"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -121,6 +124,7 @@ const UpdateFood = () => {
                 defaultValue={food?.pickupLocation}
                 placeholder="Pickup Location"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -138,6 +142,7 @@ const UpdateFood = () => {
                 defaultValue={food?.expiredDate}
                 placeholder="Expired Date"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -153,6 +158,7 @@ const UpdateFood = () => {
                 defaultValue={food?.additionalNotes}
                 placeholder="Additional Notes"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>

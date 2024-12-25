@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FeaturedFoodCard from "../components/FeaturedFoodCard";
+import UseTitle from "../components/UseTitle";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
@@ -7,18 +8,23 @@ const AvailableFoods = () => {
   const [sort, setSort] = useState("");
   const [layout, setLayout] = useState(true);
   const [availableData, setAvailableData] = useState([]);
+  UseTitle("Available Foods");
   //   console.log(foods);
   const toggleLayout = () => {
     setLayout(!layout);
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/foods?search=${search}&sort=${sort}`)
+    fetch(
+      `https://food-sharing-server-zeta.vercel.app/foods?search=${search}&sort=${sort}`
+    )
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, [search, sort]);
   useEffect(() => {
-    const filterFoods = foods.filter((food) => food.foodStatus === "available");
+    const filterFoods = foods?.filter(
+      (food) => food.foodStatus === "available"
+    );
     setAvailableData(filterFoods);
   }, [foods]);
   return (

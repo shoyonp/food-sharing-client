@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import UseTitle from "../components/UseTitle";
 
 const FoodRequest = () => {
   const [foodRequests, setFoodRequests] = useState([]);
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
-
+  UseTitle("My Request");
   useEffect(() => {
     fetchAllFoodsRequests();
   }, [user]);
@@ -14,7 +15,7 @@ const FoodRequest = () => {
   const fetchAllFoodsRequests = async () => {
     const { data } = await axiosSecure.get(`/my-request/${user?.email}`);
     setFoodRequests(data);
-    console.log(foodRequests);
+    // console.log(foodRequests);
   };
   return (
     <div>

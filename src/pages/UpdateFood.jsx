@@ -2,19 +2,23 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import UseTitle from "../components/UseTitle";
 
 const UpdateFood = () => {
   const [food, setFood] = useState({});
   const navigate = useNavigate();
   const { id } = useParams();
+  UseTitle("Update Food");
   useEffect(() => {
     fetchFood();
   }, [id]);
 
   const fetchFood = async () => {
-    const { data } = await axios.get(`http://localhost:5000/food/${id}`);
+    const { data } = await axios.get(
+      `https://food-sharing-server-zeta.vercel.app/food/${id}`
+    );
     setFood(data);
-    console.log(data);
+    // console.log(data);
   };
 
   const handleUpdate = async (e) => {
@@ -30,11 +34,11 @@ const UpdateFood = () => {
 
     const formData = {
       foodName,
-    //   donator: {
-    //     image: user?.photoURL,
-    //     name: user?.displayName,
-    //     email: user?.email,
-    //   },
+      //   donator: {
+      //     image: user?.photoURL,
+      //     name: user?.displayName,
+      //     email: user?.email,
+      //   },
       foodImage,
       foodQuantity,
       pickupLocation,
@@ -44,14 +48,13 @@ const UpdateFood = () => {
     };
 
     const { data } = await axios.put(
-      `http://localhost:5000/updateFood/${id}`,
+      `https://food-sharing-server-zeta.vercel.app/updateFood/${id}`,
       formData
     );
     if (data.modifiedCount || data.upsertedCount) {
       toast.success("Food updated successfully");
       navigate("/manageFood");
     }
-    console.log(data);
   };
 
   return (

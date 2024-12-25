@@ -33,7 +33,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/food/${params.id}`),
+          fetch(`https://food-sharing-server-zeta.vercel.app/food/${params.id}`),
       },
       {
         path: "addFood",

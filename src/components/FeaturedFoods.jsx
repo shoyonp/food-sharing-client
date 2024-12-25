@@ -12,27 +12,29 @@ const FeaturedFoods = () => {
   //   }, []);
 
   //   const fetchAllfoods = async () => {
-  //     const { data } = await axios.get("http://localhost:5000/foods");
+  //     const { data } = await axios.get("https://food-sharing-server-zeta.vercel.app/foods");
   //     setFoods(data);
   //   };
 
-  // us
+  // using tanStack 
   const { data: foods, isLoading } = useQuery({
     queryKey: ["foods"],
     queryFn: async () => {
-      const { data } = await axios.get("http://localhost:5000/foods");
+      const { data } = await axios.get("https://food-sharing-server-zeta.vercel.app/foods");
       return data;
     },
   });
   useEffect(() => {
-    const filterFoods = foods.filter((food) => food.foodStatus === "available");
+    const filterFoods = foods?.filter((food) => food.foodStatus === "available");
     setAvailableData(filterFoods);
   }, [foods]);
   if (isLoading) {
     return (
       <span className="loading loading-dots loading-lg mx-auto flex justify-center  min-h-screen"></span>
+      
     );
   }
+  
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-5">

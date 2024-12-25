@@ -39,7 +39,6 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, updatedData);
   };
 
-  console.log(user);
   const authInfo = {
     user,
     setUser,
@@ -54,13 +53,13 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log("state captured", currentUser);
+    //   console.log("state captured", currentUser);
       // generating token
       if (currentUser?.email) {
         const email = { email: currentUser.email };
 
         axios
-          .post("http://localhost:5000/jwt", email, {
+          .post("https://food-sharing-server-zeta.vercel.app/jwt", email, {
             withCredentials: true,
           })
           .then((res) => {
@@ -71,14 +70,14 @@ const AuthProvider = ({ children }) => {
         // removing token
         axios
           .post(
-            "http://localhost:5000/logout",
+            "https://food-sharing-server-zeta.vercel.app/logout",
             {},
             {
               withCredentials: true,
             }
           )
           .then((res) => {
-            console.log("logiut", res.data);
+            // console.log("logiut", res.data);
             setLoading(false);
           });
       }

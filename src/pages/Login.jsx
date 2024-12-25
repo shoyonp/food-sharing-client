@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 import toast from "react-hot-toast";
+import UseTitle from "../components/UseTitle";
 
 const Login = () => {
   const { userSignIn, setUser, googleLogin } = useContext(AuthContext);
@@ -12,6 +13,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const emailRef = useRef();
+  UseTitle("Login");
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -38,7 +40,7 @@ const Login = () => {
         toast.success("Login success");
         setUser(user);
         navigate(location?.state ? location.state : "/");
-        console.log(user);
+        // console.log(user);
       })
       .catch((error) => {
         console.log(error.message);

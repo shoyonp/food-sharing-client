@@ -1,8 +1,10 @@
 import React from "react";
 import Banner from "../components/Banner";
 import FeaturedFoods from "../components/FeaturedFoods";
+import UseTitle from "../components/UseTitle";
 
 const Home = () => {
+  UseTitle("Home");
   return (
     <div>
       <Banner></Banner>

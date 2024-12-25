@@ -3,11 +3,13 @@ import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import UseTitle from "../components/UseTitle";
 
 const AddFood = () => {
   //   const [expiredDate, setExpiredDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  UseTitle('Add Foods')
   const handleAddFood = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -36,7 +38,7 @@ const AddFood = () => {
 
     // console.log(formData);
 
-    // fetch("http://localhost:5000/foods", {
+    // fetch("https://food-sharing-server-zeta.vercel.app/foods", {
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",
@@ -51,12 +53,12 @@ const AddFood = () => {
     //     }
     //   });
 
-    const { data } = await axios.post("http://localhost:5000/foods", formData);
+    const { data } = await axios.post("https://food-sharing-server-zeta.vercel.app/foods", formData);
     if (data.insertedId) {
       toast.success("Food added successfully");
       navigate("/manageFood");
     }
-    console.log(data);
+    // console.log(data);
   };
 
   return (

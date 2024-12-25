@@ -4,20 +4,21 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import UseTitle from "../components/UseTitle";
 
 const ManageFood = () => {
   const { user } = useContext(AuthContext);
   const [foods, setFoods] = useState([]);
   const axiosSecure = useAxiosSecure();
-
+  UseTitle("Manage Food");
   //   useEffect(() => {
-  //     fetch(`http://localhost:5000/foods?email=${user?.email}`)
+  //     fetch(`https://food-sharing-server-zeta.vercel.app/foods?email=${user?.email}`)
   //       .then((res) => res.json())
   //       .then((data) => setFoods(data));
   //   }, [user.email]);
 
   //   const handleDelete = (id) => {
-  //     fetch(`http://localhost:5000/foods/${id}`, {
+  //     fetch(`https://food-sharing-server-zeta.vercel.app/foods/${id}`, {
   //       method: "DELETE",
   //     })
   //       .then((res) => res.json())
@@ -44,8 +45,10 @@ const ManageFood = () => {
   //  delete a data
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete(`http://localhost:5000/foods/${id}`);
-      console.log(data);
+      const { data } = await axios.delete(
+        `https://food-sharing-server-zeta.vercel.app/foods/${id}`
+      );
+    //   console.log(data);
       toast.success("Deletd successfully");
       fetchAllFoods();
     } catch (error) {
@@ -80,7 +83,6 @@ const ManageFood = () => {
     ));
   };
 
-  console.log(foods);
   return (
     <div>
       manage food:{foods?.length}

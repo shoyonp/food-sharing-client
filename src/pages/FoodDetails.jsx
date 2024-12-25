@@ -3,12 +3,14 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
+import UseTitle from "../components/UseTitle";
 
 const FoodDetails = () => {
   const [date, setDate] = useState("");
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const food = useLoaderData();
+  UseTitle("Details");
   const {
     _id,
     foodName,
@@ -21,12 +23,12 @@ const FoodDetails = () => {
     foodStatus,
   } = food;
 
-  console.log(food);
+//   console.log(food);
 
   //   current date
   useEffect(() => {
     const currentDate = new Date().toLocaleDateString("en-US");
-    console.log(currentDate);
+    // console.log(currentDate);
     setDate(currentDate);
   }, [Date]);
 
@@ -48,14 +50,14 @@ const FoodDetails = () => {
       foodId,
     };
     const { data } = await axios.post(
-      "http://localhost:5000/req-food",
+      "https://food-sharing-server-zeta.vercel.app/req-food",
       reqData
     );
     if (data.insertedId) {
       toast.success("Request successfully");
       navigate("/foodRequest");
     }
-    console.log(data);
+    // console.log(data);
   };
 
   return (

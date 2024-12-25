@@ -5,12 +5,14 @@ import toast from "react-hot-toast";
 import { signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../firebase/firebase.config";
+import UseTitle from "../components/UseTitle";
 
 const Register = () => {
   const { creatUser, setUser, updateUserProfile, googleLogin } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  UseTitle("Register");
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -45,7 +47,6 @@ const Register = () => {
           .catch((error) => {
             console.log(error);
           });
-        // console.log(user);
       })
       .catch((error) => {
         console.log(error.message);
@@ -59,7 +60,6 @@ const Register = () => {
         const user = result.user;
         setUser(user);
         navigate("/");
-        console.log(user);
       })
       .catch((error) => {
         console.log(error.message);

@@ -4,7 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://food-sharing-server-zeta.vercel.app",
   withCredentials: true,
 });
 const useAxiosSecure = () => {
@@ -16,12 +16,12 @@ const useAxiosSecure = () => {
         return response;
       },
       (error) => {
-        console.log("error caught in interceptor", error);
+        // console.log("error caught in interceptor", error);
 
         if (error.status === 401 || error.satus === 403) {
           UserSignOut()
             .then(() => {
-              console.log("user logged out");
+            //   console.log("user logged out");
               navigate("/login");
             })
             .catch((error) => console.log(error));

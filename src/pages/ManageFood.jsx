@@ -3,10 +3,12 @@ import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageFood = () => {
   const { user } = useContext(AuthContext);
   const [foods, setFoods] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
   //   useEffect(() => {
   //     fetch(`http://localhost:5000/foods?email=${user?.email}`)
@@ -35,11 +37,7 @@ const ManageFood = () => {
   }, [user]);
 
   const fetchAllFoods = async () => {
-    const { data } = await axios.get(
-      `http://localhost:5000/foods/${user?.email}`,{
-        withCredentials:true
-      }
-    );
+    const { data } = await axiosSecure.get(`/foods/${user?.email}`);
     setFoods(data);
   };
 

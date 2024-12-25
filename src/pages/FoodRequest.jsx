@@ -1,22 +1,18 @@
-import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const FoodRequest = () => {
   const [foodRequests, setFoodRequests] = useState([]);
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     fetchAllFoodsRequests();
   }, [user]);
 
   const fetchAllFoodsRequests = async () => {
-    const { data } = await axios.get(
-      `http://localhost:5000/my-request/${user?.email}`,
-      {
-        withCredentials: true,
-      }
-    );
+    const { data } = await axiosSecure.get(`/my-request/${user?.email}`);
     setFoodRequests(data);
     console.log(foodRequests);
   };

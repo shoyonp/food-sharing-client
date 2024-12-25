@@ -17,13 +17,11 @@ const Login = () => {
     const form = new FormData(e.target);
     const email = form.get("email");
     const password = form.get("password");
-    // console.log(email, password);
+    // sign in with email and pass
     userSignIn(email, password)
       .then((result) => {
         const user = result.user;
-
         toast.success("Login success");
-        // console.log("sign in", user);
         setUser(user);
         navigate(location?.state ? location.state : "/");
       })
@@ -32,10 +30,12 @@ const Login = () => {
       });
   };
 
-  const handleGoogleSignIn = () => {
+  //   sign in with google
+  const handleGoogleSignIn = async () => {
     signInWithPopup(auth, googleLogin())
       .then((result) => {
         const user = result.user;
+        toast.success("Login success");
         setUser(user);
         navigate(location?.state ? location.state : "/");
         console.log(user);

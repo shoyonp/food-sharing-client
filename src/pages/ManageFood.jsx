@@ -36,7 +36,9 @@ const ManageFood = () => {
 
   const fetchAllFoods = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/foods/${user?.email}`
+      `http://localhost:5000/foods/${user?.email}`,{
+        withCredentials:true
+      }
     );
     setFoods(data);
   };

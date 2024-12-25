@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext();
 
@@ -54,7 +55,33 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log("state captured", currentUser);
-      setLoading(false);
+      // generating token
+      if (currentUser?.email) {
+        const email = { email: currentUser.email };
+
+        axios
+          .post("http://localhost:5000/jwt", email, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+            setLoading(false);
+          });
+      } else {
+        // removing token
+        axios
+          .post(
+            "http://localhost:5000/logout",
+            {},
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
+            console.log("logiut", res.data);
+            setLoading(false);
+          });
+      }
     });
     return () => {
       unSubscribe();

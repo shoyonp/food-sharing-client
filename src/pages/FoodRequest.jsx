@@ -12,7 +12,10 @@ const FoodRequest = () => {
 
   const fetchAllFoodsRequests = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/my-request/${user?.email}`
+      `http://localhost:5000/my-request/${user?.email}`,
+      {
+        withCredentials: true,
+      }
     );
     setFoodRequests(data);
     console.log(foodRequests);

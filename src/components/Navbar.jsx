@@ -56,7 +56,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-5"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow gap-5"
           >
             {links}
           </ul>
@@ -65,8 +65,8 @@ const Navbar = () => {
         <Link href="/" className="text-2xl font-bold flex items-center space-x-2">
           <span className="text-red-500 transition-transform transform hover:scale-110">S</span>
           <span className="text-gray-700 transition-colors hover:text-red-500">hare</span>
-          <span className="text-red-500 transition-transform transform hover:scale-110">A</span>
-          <span className="text-gray-700 transition-colors hover:text-red-500">Bite</span>
+          <span className="text-red-500 transition-transform transform hover:scale-110">P</span>
+          <span className="text-gray-700 transition-colors hover:text-red-500">lates</span>
         </Link>
         </div>
       </div>

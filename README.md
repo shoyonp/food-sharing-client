@@ -1,5 +1,5 @@
 live url : https://food-sharing-8045e.web.app/
-my projects name is : Share A Bite
+my projects name is : Share Plates
 
 purpose:this is a food sharing website form this website a user can post a fodd who wants to share foods with outhers
 this food charges no amount 
@@ -19,3 +19,5 @@ npm packages I have used :
 - react-hot-toast
 - react-icons
 - react-router-dom
+- lottie file
+- swiper

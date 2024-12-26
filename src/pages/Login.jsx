@@ -60,7 +60,7 @@ const Login = () => {
   };
   return (
     <div className=" min-h-screen flex justify-center items-center">
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-10">
+      <div className="card rounded-none bg-base-100 w-full max-w-sm shrink-0 shadow-md p-10">
         <h2 className="text-2xl font-semibold text-center">
           Login your account
         </h2>
@@ -101,14 +101,14 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn bg-green-600 text-white ">Login</button>
+            <button className="btn bg-gray-100 text-gray-700 px-6 py-2 rounded-lg font-semibold text-sm transition duration-300 shadow-sm hover:bg-gray-200 hover:scale-105 ">Login</button>
           </div>
         </form>
         <h2 className="font-bold text-lg  divider text-center">Or</h2>
         <div className="mb-3 mx-auto">
           <button
             onClick={handleGoogleSignIn}
-            className="btn bg-none text-green-700 "
+            className="btn bg-none text-blue-600"
           >
             <FcGoogle className="text-black"></FcGoogle> Login With Google
           </button>
@@ -116,7 +116,7 @@ const Login = () => {
 
         <p className="text-center font-semibold">
           Dont't Have An Account ?{" "}
-          <Link className="text-green-600" to="/register">
+          <Link className="text-red-600" to="/register">
             Register
           </Link>
         </p>

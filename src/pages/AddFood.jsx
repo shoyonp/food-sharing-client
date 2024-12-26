@@ -62,7 +62,7 @@ const AddFood = () => {
   };
 
   return (
-    <div className="bg-[#F4F3F0] p-24 w-3/5 mx-auto">
+    <div className="bg-[#F4F3F0] p-10 w-full md:p-24  md:w-3/5 mx-auto">
       <h2 className="text-3xl font-bold">Add a Food</h2>
       <form onSubmit={handleAddFood}>
         {/* form name and image row */}

@@ -46,7 +46,7 @@ const FeaturedFoods = () => {
           ))}
       </div>
       <Link to="/availableFood">
-        <button className="btn btn-warning">Show All</button>
+        <button className="btn mb-4 px-4 py-2 bg-blue-500 text-white rounded">Show All</button>
       </Link>
     </div>
   );

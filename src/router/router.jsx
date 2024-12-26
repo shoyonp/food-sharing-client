@@ -10,12 +10,13 @@ import Register from "../pages/Register";
 import FoodDetails from "../pages/FoodDetails";
 import PrivateRoute from "./PrivateRoute";
 import UpdateFood from "../pages/UpdateFood";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <h2>route Not found</h2>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -33,7 +34,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://food-sharing-server-zeta.vercel.app/food/${params.id}`),
+          fetch(
+            `https://food-sharing-server-zeta.vercel.app/food/${params.id}`
+          ),
       },
       {
         path: "addFood",

@@ -28,7 +28,7 @@ const AvailableFoods = () => {
     setAvailableData(filterFoods);
   }, [foods]);
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <div className="flex mx-auto justify-center">
         <div>
           <input

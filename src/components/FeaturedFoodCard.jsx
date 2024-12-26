@@ -26,7 +26,11 @@ const FeaturedFoodCard = ({ food }) => {
           </p>
           <span className="text-green-500 font-bold mr-2">{foodStatus}</span>
           <Link to={`/foods/${_id}`}>
-            <button className=" mt-4 bg-orange-500 text-white px-4 py-2 rounded-md transform transition duration-300 hover:scale-110 hover:bg-orange-600">
+            <button
+              className=" mt-4 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white 
+hover:from-blue-600 hover:via-blue-700 hover:to-blue-800
+ px-4 py-2 rounded-md transform transition duration-300 hover:scale-110"
+            >
               View Details
             </button>
           </Link>

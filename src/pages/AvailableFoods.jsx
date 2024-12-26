@@ -28,29 +28,37 @@ const AvailableFoods = () => {
     setAvailableData(filterFoods);
   }, [foods]);
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="flex mx-auto justify-center">
-        <div>
-          <input
-            className="border border-red-400 w-full mx-auto"
-            onChange={(e) => setSearch(e.target.value)}
-            type="text"
+    <div className="w-11/12 mx-auto mt-4">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-5 mb-5">
+        {/* drop down */}
+        <div className="dropdown dropdown-bottom">
+          <select
             name=""
             id=""
-          />
-        </div>
-        <div>
-          <select name="" id="" onChange={(e) => setSort(e.target.value)}>
+            onChange={(e) => setSort(e.target.value)}
+            className="border p-3 rounded-lg"
+          >
             <option value="">Sort By Expired Date</option>
             <option value="dsc">Descending Order</option>
             <option value="asc">Ascending Order</option>
           </select>
         </div>
+        {/* search box */}
+        <div>
+          <input
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search"
+            className="input input-bordered w-full md:w-auto"
+          />
+        </div>
+        {/* toggle */}
         <div>
           {" "}
           <button
             onClick={toggleLayout}
-            className="mb-4 px-4 py-2 bg-blue-500 text-white rounded"
+            className="px-4 py-2 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-white 
+          hover:from-gray-500 hover:via-gray-600 hover:to-gray-700 rounded-md transform transition duration-300 hover:scale-110"
           >
             Change layout
           </button>

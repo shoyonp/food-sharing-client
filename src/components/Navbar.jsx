@@ -18,24 +18,24 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink className="hover:text-red-500 transition-colors duration-300" to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/availableFood">Available Foods</NavLink>
+        <NavLink className="hover:text-red-500 transition-colors duration-300" to="/availableFood">Available Foods</NavLink>
       </li>
       <li>
-        <NavLink to="/addFood">Add Food</NavLink>
+        <NavLink  className="hover:text-red-500 transition-colors duration-300" to="/addFood">Add Food</NavLink>
       </li>
       <li>
-        <NavLink to="/manageFood">Manage My Foods</NavLink>
+        <NavLink className="hover:text-red-500 transition-colors duration-300" to="/manageFood">Manage My Foods</NavLink>
       </li>
       <li>
-        <NavLink to="/foodRequest">My Food Request</NavLink>
+        <NavLink className="hover:text-red-500 transition-colors duration-300" to="/foodRequest">My Food Request</NavLink>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -61,7 +61,14 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl">Share <span>A</span> Bite</Link>
+        <div>
+        <Link href="/" className="text-2xl font-bold flex items-center space-x-2">
+          <span className="text-red-500 transition-transform transform hover:scale-110">S</span>
+          <span className="text-gray-700 transition-colors hover:text-red-500">hare</span>
+          <span className="text-red-500 transition-transform transform hover:scale-110">A</span>
+          <span className="text-gray-700 transition-colors hover:text-red-500">Bite</span>
+        </Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-3">{links}</ul>
@@ -74,16 +81,16 @@ const Navbar = () => {
                 <img src={user?.photoURL} title={user?.displayName}/>
               </div>
             </div>
-            <button className="btn" onClick={handleSignOut}>
+            <button className="btn bg-red-500 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm hover:bg-red-600 hover:scale-105" onClick={handleSignOut}>
               Log Out
             </button>
           </>
         ) : (
           <>
-            <Link className="btn" to="/login">
+            <Link className="btn bg-gray-100 text-gray-700 px-6 py-2 rounded-lg font-semibold text-sm transition duration-300 shadow-sm hover:bg-gray-200 hover:scale-105" to="/login">
               Login
             </Link>
-            <Link className="btn" to="register">
+            <Link className="btn bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm hover:from-red-600 hover:to-red-800 hover:scale-105" to="register">
               SignUp
             </Link>
           </>

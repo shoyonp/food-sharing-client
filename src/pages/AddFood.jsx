@@ -169,7 +169,10 @@ const AddFood = () => {
         <input
           type="submit"
           value="Add Food"
-          className="btn btn-block btn-neutral"
+          className="btn btn-block bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 text-white 
+hover:from-amber-600 hover:via-amber-700 hover:to-amber-800
+focus:ring-yellow-300
+"
         />
       </form>
     </div>

@@ -12,3 +12,23 @@ a.active{
     background-color: brown;
     color: black;
 }
+
+.welcome-section h3 {
+    color: #e53e3e;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-section h2 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .welcome-section ul li {
+    color: #4a5568;
+    margin-bottom: 5px;
+  }
+  

@@ -130,14 +130,14 @@ const ManageFood = () => {
                 <td className="px-6 py-4 text-[#4B4B4B]">{food.expiredDate}</td>
                 <td className="px-6 py-4 text-center gap-3">
                   <Link to={`/updateFood/${food._id}`}>
-                    <button className="bg-blue-500 hover:bg-blue-600 p-2 rounded-full">
+                    <button className="bg-blue-500 hover:bg-blue-600 p-2 rounded-full text-white">
                       <MdTipsAndUpdates />
                     </button>
                   </Link>
 
                   <button
                     onClick={() => deleteFood(food._id)}
-                    className=" bg-red-500 hover:bg-red-600 p-2 rounded-full ml-0 mt-2 md:ml-2"
+                    className=" bg-red-500 hover:bg-red-600 p-2 rounded-full ml-0 mt-2 md:ml-2 text-white"
                   >
                     <RiDeleteBin6Fill />
                   </button>

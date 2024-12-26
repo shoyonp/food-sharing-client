@@ -5,6 +5,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import UseTitle from "../components/UseTitle";
+import { MdTipsAndUpdates } from "react-icons/md";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 
 const ManageFood = () => {
   const { user } = useContext(AuthContext);
@@ -48,7 +50,7 @@ const ManageFood = () => {
       const { data } = await axios.delete(
         `https://food-sharing-server-zeta.vercel.app/foods/${id}`
       );
-    //   console.log(data);
+      //   console.log(data);
       toast.success("Deletd successfully");
       fetchAllFoods();
     } catch (error) {
@@ -85,61 +87,61 @@ const ManageFood = () => {
 
   return (
     <div>
-      manage food:{foods?.length}
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table w-11/12 mx-auto ">
           {/* head */}
-          <thead>
+          <thead className="bg-[#EDEDED] text-[#4B4B4B]">
             <tr>
-              <th>Food Name & Location</th>
-              <th>Additional Notes & Quantity</th>
-              <th>Expired Date</th>
-              <th></th>
+              <th className="px-6 py-4 text-left font-semibold">
+                Food Name & Location
+              </th>
+              <th className="px-6 py-4 text-left font-semibold">
+                Additional Notes & Quantity
+              </th>
+              <th className="px-6 py-4 text-left font-semibold">
+                Expired Date
+              </th>
+              <th className="px-6 py-4 text-center font-semibold">Actions</th>
             </tr>
           </thead>
           {foods?.map((food, idx) => (
             <tbody key={food._id}>
               {/* row 1 */}
-              <tr>
-                <td>
-                  <div className="flex items-center gap-3">
-                    <span>{idx + 1}</span>
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src={food.foodImage}
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">{food.foodName}</div>
-                      <div className="text-sm opacity-50">
-                        {food.pickupLocation}
-                      </div>
-                    </div>
+              <tr className="border-b hover:bg-[#F7F7F7] transition duration-300">
+                <td className="px-6 py-4 flex items-center gap-4">
+                  <img
+                    className="w-12 h-12 rounded-lg object-cover border"
+                    src={food.foodImage}
+                    alt="Food"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-[#4B4B4B]">
+                      {food.foodName}
+                    </p>
+                    <p className="text-sm text-[#737373]">
+                      {food.pickupLocation}
+                    </p>
                   </div>
                 </td>
-                <td>
-                  {food.additionalNotes}
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    {food.foodQuantity}
-                  </span>
+                <td className="px-6 py-4 text-[#4B4B4B]">
+                  <p className="text-sm">{food.additionalNotes}</p>
+                  <p className="text-sm text-[#737373]">{food.foodQuantity}</p>
                 </td>
-                <td>{food.expiredDate}</td>
-                <th>
+                <td className="px-6 py-4 text-[#4B4B4B]">{food.expiredDate}</td>
+                <td className="px-6 py-4 text-center gap-3">
                   <Link to={`/updateFood/${food._id}`}>
-                    {" "}
-                    <button className="btn btn-ghost btn-xs">Update</button>
+                    <button className="bg-blue-500 hover:bg-blue-600 p-2 rounded-full">
+                      <MdTipsAndUpdates />
+                    </button>
                   </Link>
+
                   <button
                     onClick={() => deleteFood(food._id)}
-                    className="btn btn-ghost btn-xs"
+                    className=" bg-red-500 hover:bg-red-600 p-2 rounded-full ml-0 mt-2 md:ml-2"
                   >
-                    Delete
+                    <RiDeleteBin6Fill />
                   </button>
-                </th>
+                </td>
               </tr>
             </tbody>
           ))}

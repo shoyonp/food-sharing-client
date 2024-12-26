@@ -18,32 +18,57 @@ const FoodRequest = () => {
     // console.log(foodRequests);
   };
   return (
-    <div>
-      <div className="overflow-x-auto">
-        <table className="table table-xs">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Donar Name </th>
-              <th>Pickup Location</th>
-              <th>Expire Date</th>
-              <th>Request Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {foodRequests?.map((request, idx) => (
-              <tr key={request._id} request={request}>
-                <th>{idx + 1}</th>
-                <td>{request?.donarName}</td>
-                <td>{request?.pickupLocation}</td>
-                <td>{request?.expiredDate}</td>
-                <td>{request?.requestDate}</td>
+    <>
+      <div className="container mx-auto px-4 py-8 w-screen  md:w-11/12 ">
+        <div className="overflow-x-hidden no-scrollbar">
+          <table className="min-w-full  border-collapse border border-gray-300 rounded-lg shadow-md bg-white">
+            <thead className="bg-gray-100 text-gray-600 uppercase text-sm">
+              <tr>
+                <th className="px-6 py-4 border border-gray-300 text-left">
+                  #
+                </th>
+                <th className="px-6 py-4 border border-gray-300 text-left">
+                  Donar Name
+                </th>
+                <th className="px-6 py-4 border border-gray-300 text-left">
+                  Pickup Location
+                </th>
+                <th className="px-6 py-4 border border-gray-300 text-left">
+                  Expire Date
+                </th>
+                <th className="px-6 py-4 border border-gray-300 text-left">
+                  Request Date
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="text-gray-700 text-sm">
+              {foodRequests?.map((request, idx) => (
+                <tr
+                  key={request._id}
+                  className=" hover:bg-gray-100 transition-transform duration-300 transform hover:scale-105"
+                >
+                  <td className="px-6 py-4 border border-gray-300">
+                    {idx + 1}
+                  </td>
+                  <td className="px-6 py-4 border border-gray-300">
+                    {request?.donarName}
+                  </td>
+                  <td className="px-6 py-4 border border-gray-300">
+                    {request?.pickupLocation}
+                  </td>
+                  <td className="px-6 py-4 border border-gray-300">
+                    {request?.expiredDate}
+                  </td>
+                  <td className="px-6 py-4 border border-gray-300">
+                    {request?.requestDate}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

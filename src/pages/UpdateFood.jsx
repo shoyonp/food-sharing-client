@@ -51,6 +51,7 @@ const UpdateFood = () => {
       `https://food-sharing-server-zeta.vercel.app/updateFood/${id}`,
       formData
     );
+    console.log(data);
     if (data.modifiedCount || data.upsertedCount) {
       toast.success("Food updated successfully");
       navigate("/manageFood");

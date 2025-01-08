@@ -41,3 +41,5 @@ How to run on local machine :
 - git clone
 - npm install
 - you need firebase variable keys
+- and the backend
+Here is server repo link: https://github.com/shoyonp/food-sharing-server

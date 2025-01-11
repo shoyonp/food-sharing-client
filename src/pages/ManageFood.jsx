@@ -87,7 +87,7 @@ const ManageFood = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mt-20">
         <table className="table w-11/12 mx-auto ">
           {/* head */}
           <thead className="bg-[#EDEDED] text-[#4B4B4B]">

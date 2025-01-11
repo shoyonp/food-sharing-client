@@ -66,7 +66,7 @@ const Register = () => {
       });
   };
   return (
-    <div className=" min-h-screen flex justify-center items-center">
+    <div className=" min-h-screen md:mt-16 flex justify-center items-center">
       <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-md rounded-none p-10">
         <h2 className="text-2xl font-semibold text-center">
           Register your account

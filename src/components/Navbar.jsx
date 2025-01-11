@@ -18,24 +18,61 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink className="hover:text-red-500 transition-colors duration-300" to="/">Home</NavLink>
+        <NavLink
+          className="hover:text-red-500 transition-colors duration-300"
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink className="hover:text-red-500 transition-colors duration-300" to="/availableFood">Available Foods</NavLink>
+        <NavLink
+          className="hover:text-red-500 transition-colors duration-300"
+          to="/availableFood"
+        >
+          Available Foods
+        </NavLink>
       </li>
-      <li>
-        <NavLink  className="hover:text-red-500 transition-colors duration-300" to="/addFood">Add Food</NavLink>
-      </li>
-      <li>
-        <NavLink className="hover:text-red-500 transition-colors duration-300" to="/manageFood">Manage My Foods</NavLink>
-      </li>
-      <li>
-        <NavLink className="hover:text-red-500 transition-colors duration-300" to="/foodRequest">My Food Request</NavLink>
-      </li>
+      {user && user.email ? (
+        <li>
+          <NavLink
+            className="hover:text-red-500 transition-colors duration-300"
+            to="/addFood"
+          >
+            Add Food
+          </NavLink>
+        </li>
+      ) : (
+        ""
+      )}
+      {user && user.email ? (
+        <li>
+          <NavLink
+            className="hover:text-red-500 transition-colors duration-300"
+            to="/manageFood"
+          >
+            Manage My Foods
+          </NavLink>
+        </li>
+      ) : (
+        ""
+      )}
+      {user && user.email ? (
+        <li>
+          <NavLink
+            className="hover:text-red-500 transition-colors duration-300"
+            to="/foodRequest"
+          >
+            My Food Request
+          </NavLink>
+        </li>
+      ) : (
+        ""
+      )}
     </>
   );
   return (
-    <div className="navbar bg-base-100 w-full md:w-11/12 mx-auto">
+    <div className="navbar w-full fixed z-10 top-0 bg-black/25 mx-auto md:px-7 lg:px-20 text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -56,18 +93,29 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow gap-5"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow gap-5 text-black"
           >
             {links}
           </ul>
         </div>
         <div>
-        <Link href="/" className="text-2xl font-bold flex items-center space-x-2">
-          <span className="text-red-500 transition-transform transform hover:scale-110">S</span>
-          <span className="text-gray-700 transition-colors hover:text-red-500">hare</span>
-          <span className="text-red-500 transition-transform transform hover:scale-110">P</span>
-          <span className="text-gray-700 transition-colors hover:text-red-500">lates</span>
-        </Link>
+          <Link
+            href="/"
+            className="text-2xl font-bold flex items-center space-x-2"
+          >
+            <span className="text-red-500 transition-transform transform hover:scale-110">
+              S
+            </span>
+            <span className="text-white transition-colors hover:text-red-500">
+              hare
+            </span>
+            <span className="text-red-500 transition-transform transform hover:scale-110">
+              P
+            </span>
+            <span className="text-white transition-colors hover:text-red-500">
+              lates
+            </span>
+          </Link>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -78,19 +126,28 @@ const Navbar = () => {
           <>
             <div className="avatar">
               <div className="w-12 rounded-full">
-                <img src={user?.photoURL} title={user?.displayName}/>
+                <img src={user?.photoURL} title={user?.displayName} />
               </div>
             </div>
-            <button className="btn bg-red-500 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm hover:bg-red-600 hover:scale-105" onClick={handleSignOut}>
+            <button
+              className="btn bg-red-500 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm hover:bg-red-600 hover:scale-105"
+              onClick={handleSignOut}
+            >
               Log Out
             </button>
           </>
         ) : (
           <>
-            <Link className="btn bg-gray-100 text-gray-700 px-6 py-2 rounded-lg font-semibold text-sm transition duration-300 shadow-sm hover:bg-gray-200 hover:scale-105" to="/login">
+            <Link
+              className="btn bg-gray-100 text-gray-700 px-6 py-2 rounded-lg font-semibold text-sm transition duration-300 shadow-sm hover:bg-gray-200 hover:scale-105"
+              to="/login"
+            >
               Login
             </Link>
-            <Link className="btn bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm hover:from-red-600 hover:to-red-800 hover:scale-105" to="register">
+            <Link
+              className="btn border-none bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm hover:from-red-600 hover:to-red-800 hover:scale-105"
+              to="register"
+            >
               SignUp
             </Link>
           </>

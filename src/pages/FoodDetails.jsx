@@ -62,6 +62,7 @@ const FoodDetails = () => {
 
   return (
     <>
+    <div className="mt-20">
     <h1 className="text-2xl font-bold text-[#4B4B4B] w-11/12 my-4 mx-auto">Food Details</h1>
       <div className=" bg-gradient-to-r from-[#FAFAF7] to-[#EDEDED] flex items-center justify-center">
         <div className="card card-side bg-[#F5F5DC] shadow-xl w-11/12 mx-auto my-4 flex flex-col md:flex-row overflow-hidden rounded-lg transition-transform duration-500 hover:scale-105">
@@ -165,6 +166,7 @@ const FoodDetails = () => {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 };

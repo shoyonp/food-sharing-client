@@ -19,7 +19,7 @@ const FoodRequest = () => {
   };
   return (
     <>
-      <div className="container mx-auto px-4 py-8 w-screen  md:w-11/12 ">
+      <div className="container mx-auto px-4 py-8 w-screen  md:w-11/12 mt-20">
         <div className="overflow-x-hidden no-scrollbar">
           <table className="min-w-full  border-collapse border border-gray-300 rounded-lg shadow-md bg-white">
             <thead className="bg-gray-100 text-gray-600 uppercase text-sm">

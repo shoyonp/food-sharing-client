@@ -61,7 +61,7 @@ const UpdateFood = () => {
   };
 
   return (
-    <div className="bg-[#F4F3F0] p-12 w-full mx-auto">
+    <div className="bg-[#F4F3F0] p-8 w-full md:p-16 mt-16 mx-auto">
       <h2 className="text-3xl font-bold ml-3 md:ml-10 lg:ml-14 w-11/12">Update Food</h2>
       <div className="w-11/12 mx-auto flex flex-col gap-10 md:flex-row items-center">
         <form className="w-full lg:w-3/4" onSubmit={handleUpdate}>

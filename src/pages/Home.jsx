@@ -9,10 +9,9 @@ const Home = () => {
   UseTitle("Home");
   return (
     <div>
-      <section className="w-11/12 mx-auto"><Banner></Banner></section>
+      <section className=""><Banner></Banner></section>
       <section><SectionOne></SectionOne></section>
       <section className="w-11/12 mx-auto">
-        {" "}
         <FeaturedFoods></FeaturedFoods>
       </section>
       <section><SectionTwo></SectionTwo></section>

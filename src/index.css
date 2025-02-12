@@ -8,10 +8,6 @@ body{
     font-family: "Poppins", serif;
 }
 
-a.active{
-    background-color: brown;
-    color: black;
-}
 
 .welcome-section h3 {
     color: #e53e3e;

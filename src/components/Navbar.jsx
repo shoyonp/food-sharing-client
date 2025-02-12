@@ -17,63 +17,92 @@ const Navbar = () => {
   };
   const links = (
     <>
-      <li>
-        <NavLink
-          className="hover:text-red-500 transition-colors duration-300"
-          to="/"
-        >
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className="hover:text-red-500 transition-colors duration-300"
-          to="/availableFood"
-        >
-          Available Foods
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className="hover:text-red-500 transition-colors duration-300"
-          to="/faq"
-        >
-          FAQ
-        </NavLink>
-      </li>
+      <NavLink
+        className={({ isActive }) =>
+          `py-2 px-4 rounded-md transition-all duration-300 ${
+            isActive
+              ? "bg-blue-100 text-blue-600 font-semibold shadow-lg"
+              : "hover:bg-blue-50 hover:text-blue-500"
+          }`
+        }
+        to="/"
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        className={({ isActive }) =>
+          `py-2 px-4 rounded-md transition-all duration-300 ${
+            isActive
+              ? "bg-blue-100 text-blue-600 font-semibold shadow-lg"
+              : "hover:bg-blue-50 hover:text-blue-500"
+          }`
+        }
+        to="/availableFood"
+      >
+        Available Foods
+      </NavLink>
+
+      <NavLink
+        className={({ isActive }) =>
+          `py-2 px-4 rounded-md transition-all duration-300 ${
+            isActive
+              ? "bg-blue-100 text-blue-600 font-semibold shadow-lg"
+              : "hover:bg-blue-50 hover:text-blue-500"
+          }`
+        }
+        to="/faq"
+      >
+        FAQ
+      </NavLink>
+
       {user && user.email ? (
-        <li>
-          <NavLink
-            className="hover:text-red-500 transition-colors duration-300"
-            to="/addFood"
-          >
-            Add Food
-          </NavLink>
-        </li>
+        <NavLink
+          className={({ isActive }) =>
+            `py-2 px-4 rounded-md transition-all duration-300 ${
+              isActive
+                ? "bg-blue-100 text-blue-600 font-semibold shadow-lg"
+                : "hover:bg-blue-50 hover:text-blue-500"
+            }`
+          }
+          to="/addFood"
+        >
+          Add Food
+        </NavLink>
       ) : (
         ""
       )}
+
       {user && user.email ? (
-        <li>
-          <NavLink
-            className="hover:text-red-500 transition-colors duration-300"
-            to="/manageFood"
-          >
-            Manage My Foods
-          </NavLink>
-        </li>
+        <NavLink
+          className={({ isActive }) =>
+            `py-2 px-4 rounded-md transition-all duration-300 ${
+              isActive
+                ? "bg-blue-100 text-blue-600 font-semibold shadow-lg"
+                : "hover:bg-blue-50 hover:text-blue-500"
+            }`
+          }
+          to="/manageFood"
+        >
+          Manage My Foods
+        </NavLink>
       ) : (
         ""
       )}
+
       {user && user.email ? (
-        <li>
-          <NavLink
-            className="hover:text-red-500 transition-colors duration-300"
-            to="/foodRequest"
-          >
-            My Food Request
-          </NavLink>
-        </li>
+        <NavLink
+          className={({ isActive }) =>
+            `py-2 px-4 rounded-md transition-all duration-300 ${
+              isActive
+                ? "bg-blue-100 text-blue-600 font-semibold shadow-lg"
+                : "hover:bg-blue-50 hover:text-blue-500"
+            }`
+          }
+          to="/foodRequest"
+        >
+          My Food Request
+        </NavLink>
       ) : (
         ""
       )}
@@ -138,7 +167,7 @@ const Navbar = () => {
               </div>
             </div>
             <button
-              className="btn border-none bg-red-500 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm hover:bg-red-600 hover:scale-105"
+              className="btn border-none bg-gradient-to-r from-red-500 to-red-700 text-white rounded-lg font-semibold text-sm shadow-sm hover:from-red-600 hover:to-red-800 hover:scale-105"
               onClick={handleSignOut}
             >
               Log Out

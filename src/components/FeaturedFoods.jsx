@@ -48,7 +48,7 @@ const FeaturedFoods = () => {
             <FeaturedFoodCard key={food._id} food={food}></FeaturedFoodCard>
           ))}
       </div>
-      <div className="flex justify-center mt-9">
+      <div className="flex justify-center mt-7">
         <Link to="/availableFood">
           <button
             className="btn px-4 py-2 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-white 

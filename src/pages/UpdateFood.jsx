@@ -174,9 +174,9 @@ const UpdateFood = () => {
           <input
             type="submit"
             value="Update"
-            className="btn btn-block bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 text-white 
-hover:from-amber-600 hover:via-amber-700 hover:to-amber-800
-focus:ring-yellow-300
+            className="btn btn-block bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white 
+hover:from-blue-600 hover:via-blue-700 hover:to-blue-800
+focus:ring-blue-300
 "
           />
         </form>

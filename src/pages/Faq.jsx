@@ -27,7 +27,7 @@ const faqs = [
 const Faq = () => {
   return (
     <>
-       <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+       <div className="min-h-screen md:mt-14 lg:mt-0 flex items-center justify-center p-6">
       <div className="max-w-3xl w-full bg-white shadow-xl rounded-lg p-8">
         <motion.h2
           initial={{ opacity: 0, y: -10 }}

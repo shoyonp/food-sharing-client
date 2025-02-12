@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import UpdateFood from "../pages/UpdateFood";
 import ErrorPage from "../pages/ErrorPage";
 import Faq from "../pages/Faq";
+import ShareStory from "../pages/ShareStory";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddFood></AddFood>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "shareStory",
+        element: (
+          <PrivateRoute>
+            <ShareStory></ShareStory>
           </PrivateRoute>
         ),
       },

@@ -39,7 +39,7 @@ const FeaturedFoods = () => {
   }
 
   return (
-    <div>
+    <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-5">
         {availableData
           ?.slice(0, 6)
@@ -48,17 +48,17 @@ const FeaturedFoods = () => {
             <FeaturedFoodCard key={food._id} food={food}></FeaturedFoodCard>
           ))}
       </div>
-      <div className="flex justify-center mt-4">
-    <Link to="/availableFood">
-      <button
-        className="btn px-4 py-2 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-white 
+      <div className="flex justify-center mt-9">
+        <Link to="/availableFood">
+          <button
+            className="btn px-4 py-2 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-white 
         hover:from-gray-500 hover:via-gray-600 hover:to-gray-700 transform transition duration-300 hover:scale-110"
-      >
-        Show All
-      </button>
-    </Link>
-  </div>
-    </div>
+          >
+            Show All
+          </button>
+        </Link>
+      </div>
+    </>
   );
 };
 

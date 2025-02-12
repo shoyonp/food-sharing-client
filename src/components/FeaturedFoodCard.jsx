@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const FeaturedFoodCard = ({ food }) => {
   const { _id, foodName, foodImage, foodQuantity, foodStatus, expiredDate } =
     food;
+
   return (
     <>
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transform transition duration-300 hover:scale-105 my-5">

@@ -21,3 +21,25 @@ npm packages I have used :
 - react-router-dom
 - lottie file
 - swiper
+
+Dependencies :
+   - "@tanstack/react-query": "^5.62.10",
+   - "axios": "^1.7.9",
+   - "firebase": "^11.1.0",
+   - "localforage": "^1.10.0",
+   - "lottie-react": "^2.4.0",
+   - "match-sorter": "^8.0.0",
+   - "react": "^18.3.1",
+   - "react-dom": "^18.3.1",
+   - "react-hot-toast": "^2.4.1",
+   - "react-icons": "^5.4.0",
+   - "react-router-dom": "^7.1.0",
+   - "sort-by": "^1.2.0",
+   - "swiper": "^11.1.15"
+     
+How to run on local machine :
+- git clone
+- npm install
+- you need firebase variable keys
+- and the backend
+Here is server repo link: https://github.com/shoyonp/food-sharing-server

@@ -48,14 +48,16 @@ const FeaturedFoods = () => {
             <FeaturedFoodCard key={food._id} food={food}></FeaturedFoodCard>
           ))}
       </div>
-      <Link to="/availableFood">
-        <button
-          className="btn mb-4 px-4 py-2 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-white 
+      <div className="flex justify-center mt-4">
+    <Link to="/availableFood">
+      <button
+        className="btn px-4 py-2 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-white 
         hover:from-gray-500 hover:via-gray-600 hover:to-gray-700 transform transition duration-300 hover:scale-110"
-        >
-          Show All
-        </button>
-      </Link>
+      >
+        Show All
+      </button>
+    </Link>
+  </div>
     </div>
   );
 };

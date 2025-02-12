@@ -33,6 +33,14 @@ const Navbar = () => {
           Available Foods
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          className="hover:text-red-500 transition-colors duration-300"
+          to="/faq"
+        >
+          FAQ
+        </NavLink>
+      </li>
       {user && user.email ? (
         <li>
           <NavLink
@@ -130,7 +138,7 @@ const Navbar = () => {
               </div>
             </div>
             <button
-              className="btn bg-red-500 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm hover:bg-red-600 hover:scale-105"
+              className="btn border-none bg-red-500 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm hover:bg-red-600 hover:scale-105"
               onClick={handleSignOut}
             >
               Log Out

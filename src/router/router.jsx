@@ -11,6 +11,7 @@ import FoodDetails from "../pages/FoodDetails";
 import PrivateRoute from "./PrivateRoute";
 import UpdateFood from "../pages/UpdateFood";
 import ErrorPage from "../pages/ErrorPage";
+import Faq from "../pages/Faq";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "availableFood",
         element: <AvailableFoods></AvailableFoods>,
+      },
+      {
+        path: "faq",
+        element: <Faq></Faq>
       },
       {
         path: "/foods/:id",

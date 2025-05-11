@@ -19,7 +19,7 @@ const SectionTwo = () => {
   }
   return (
     <section className="bg-gray-50 py-12 mx-auto w-11/12">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto md:px-6">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
           Making a Difference Together
         </h2>

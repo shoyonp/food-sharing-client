@@ -29,8 +29,8 @@ const SectionTwo = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {storys?.map((story) => (
-            <div className="bg-white shadow-lg rounded-lg p-6 overflow-hidden hover:scale-105 transform transition-all duration-300">
+          {storys?.map((story,idx) => (
+            <div key={idx} className="bg-white shadow-lg rounded-lg p-6 overflow-hidden hover:scale-105 transform transition-all duration-300">
               <img
                 src={story?.image}
                 alt={story?.name}

@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import FeaturedFoodCard from "../components/FeaturedFoodCard";
 import UseTitle from "../components/UseTitle";
+import { motion } from "framer-motion";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [layout, setLayout] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [availableData, setAvailableData] = useState([]);
   UseTitle("Available Foods");
-  //   console.log(foods);
+  console.log(foods);
   const toggleLayout = () => {
     setLayout(!layout);
   };
@@ -19,15 +21,18 @@ const AvailableFoods = () => {
       `https://food-sharing-server-zeta.vercel.app/foods?search=${search}&sort=${sort}`
     )
       .then((res) => res.json())
-      .then((data) => setFoods(data));
+      .then((data) => {
+        setFoods(data);
+        setLoading(false);
+      });
   }, [search, sort]);
+
   useEffect(() => {
     const filterFoods = foods?.filter(
       (food) => food.foodStatus === "available"
     );
     setAvailableData(filterFoods);
   }, [foods]);
-
   return (
     <div className="w-11/12 mx-auto mt-28">
       <div className="flex flex-col md:flex-row justify-center items-center gap-5 mb-5">
@@ -66,13 +71,24 @@ const AvailableFoods = () => {
         </div>
       </div>
       <div
-        className={` grid grid-cols-1 md:grid-cols-2 mx-auto gap-5 ${
+        className={`grid grid-cols-1 md:grid-cols-2 mx-auto gap-5 ${
           layout ? "lg:grid-cols-3" : "lg:grid-cols-2"
-        } `}
+        } min-h-[300px] justify-center items-center`}
       >
-        {[...availableData]?.reverse()?.map((food) => (
-          <FeaturedFoodCard key={food._id} food={food}></FeaturedFoodCard>
-        ))}
+        {loading ? (
+          <span className="loading loading-dots loading-lg col-span-full text-center mx-auto"></span>
+        ) : (
+          [...availableData]?.reverse()?.map((food) => (
+            <motion.div
+              key={food._id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <FeaturedFoodCard food={food}></FeaturedFoodCard>
+            </motion.div>
+          ))
+        )}
       </div>
     </div>
   );

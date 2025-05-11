@@ -23,7 +23,7 @@ const Home = () => {
         <SectionTwo></SectionTwo>
       </section>
       <section>
-        {/* <CommunityImpact /> */}
+        <CommunityImpact />
       </section>
       <section>
         <Newsletter></Newsletter>

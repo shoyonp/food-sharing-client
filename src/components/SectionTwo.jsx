@@ -19,7 +19,7 @@ const SectionTwo = () => {
   }
   return (
     <section className="bg-gray-50 py-12 mx-auto w-11/12">
-      <div className="container mx-auto md:px-6">
+      <div className="container mx-auto md:px-4">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
           Making a Difference Together
         </h2>
@@ -48,7 +48,7 @@ const SectionTwo = () => {
       <div className="text-center mt-12">
         <Link to="/shareStory">
           <button
-            className="btn mb-4 px-4 py-2 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-white 
+            className="btn px-4  bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 text-white 
         hover:from-gray-500 hover:via-gray-600 hover:to-gray-700 transform transition duration-300 hover:scale-110"
           >
             Share Your Story
